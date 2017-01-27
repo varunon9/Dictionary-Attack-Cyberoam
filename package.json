@@ -1,0 +1,18 @@
+{
+  "name": "cyberoam_password_guessing",
+  "version": "1.0.0",
+  "description": "dictionary attack to guess password of other users inside private network (cyberoam)",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Varun Kumar <varunon9@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "express": "^4.14.0",
+    "readline": "^1.3.0",
+    "request": "^2.79.0",
+    "xml2js": "^0.4.17"
+  }
+}
