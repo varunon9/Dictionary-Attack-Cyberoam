@@ -30,11 +30,11 @@ Also cyberoam does not block multiple login requests from same ip-address within
 
 ###### Screenshots
 
-1. How to exceute- ![Execute Script] (./screenshots/execute_script.png) 
-2. Progress- ![Attack progress] (./screenshots/attack_progress.png) 
-3. Password successfully guessed- ![Guess Success] (./screenshots/guess_success.png)
-4. 1130328 password in password file- ![1130328 password] (./screenshots/my_password.png) 
-5. Saved password in file- ![Cracked Password] (./screenshots/cracked_password.png)
+1. How to exceute- ![Execute Script](./screenshots/execute_script.png) 
+2. Progress- ![Attack progress](./screenshots/attack_progress.png) 
+3. Password successfully guessed- ![Guess Success](./screenshots/guess_success.png)
+4. 1130328 password in password file- ![1130328 password](./screenshots/my_password.png) 
+5. Saved password in file- ![Cracked Password](./screenshots/cracked_password.png)
 
 #### Working
 This script tries all passwords from passwords_jhon.txt one by one for supplied username and simulate login to 
@@ -46,13 +46,13 @@ To check URL and Form data made during post requests i.e. when you signin to por
 3. Select Network tab from opened window 
 4. Now perform login using your roll no and password and check network tab
 5. You will see an http request made by your browser. Click on login.xml and check Headers
-6. You will see url to be http://172.16.0.1:8090/login.xml - ![Login URL] (./screenshots/login_url.png)
+6. You will see url to be http://172.16.0.1:8090/login.xml - ![Login URL](./screenshots/login_url.png)
 7. scroll a little bit and check Form data. 
-8. You will see different parameters and their values. ![Form Data] (./screenshots/form_data.png)
+8. You will see different parameters and their values. ![Form Data](./screenshots/form_data.png)
 9. 'mode' 191 is for login (193 for logout) and parameter 'a' is timestamp 
 11. Using this url and form parameters, this script make http post request (as if an user is trying to login)
 12. Once you have successfully logged in, Check the preview section
-13. Browser receives an XML response on successful login. ![Response XML] (./screenshots/response_xml.png) 
+13. Browser receives an XML response on successful login. ![Response XML](./screenshots/response_xml.png) 
 14. Script validate against this response to decide if attack was successful. 
 
 ###### Further enhancement
