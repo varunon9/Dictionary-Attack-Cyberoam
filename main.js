@@ -20,9 +20,14 @@ var targetUsername = process.argv[2];
 //wordlist is taken through the commandline
 var wordlistPath = process.argv[3];
 
+if(!wordlistPath || !targetUsername) {
+    console.log("Usage: node main.js <rollno> <wordlist>")
+    return -1
+}
+
 if (!fs.existsSync(wordlistPath)) {
     console.log("Wordist file doesn't exist here : " + resolve(wordlistPath))
-    return -1
+    return -2
 }
 
 /**
