@@ -21,8 +21,8 @@ var targetUsername = process.argv[2];
 var wordlistPath = process.argv[3];
 
 if (!fs.existsSync(wordlistPath)) {
-	console.log("Wordist file doesn't exist here : " + resolve(wordlistPath))
-	return -1
+    console.log("Wordist file doesn't exist here : " + resolve(wordlistPath))
+    return -1
 }
 
 /**
