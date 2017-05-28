@@ -26,11 +26,9 @@ var lineReader = require('readline').createInterface({
 
 lineReader.on('line', function(line) {
     passwords.push(line);
-    //passwords_jhon.txt has 3107 passwords
-    //start attack after all passwords has been filled in array
-    if (passwords.length > 3106) {
-    	bruteForce();
-    }
+}).on('close', function() {
+    // This method will be executed after reading the whole file.
+    bruteForce();
 });
 
 //global variable to check if password has been guessed
