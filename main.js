@@ -4,6 +4,9 @@ var request = require('request');
 //node fs module to read from or write to file
 var fs = require('fs');
 
+//converts relative path to full path
+var resolve = require('path').resolve
+
 //passwords array which will contain passwords from .txt file
 var passwords = [];
 
@@ -14,6 +17,14 @@ var parseString = require('xml2js').parseString;
 //username supplied by user as command line argument
 var targetUsername = process.argv[2];
 
+//wordlist is taken through the commandline
+var wordlistPath = process.argv[3];
+
+if (!fs.existsSync(wordlistPath)) {
+	console.log("Wordist file doesn't exist here : " + resolve(wordlistPath))
+	return -1
+}
+
 /**
 * I am using passwords_jhon.txt for brute force attack which 
 * contains 3107 passords 
@@ -21,7 +32,7 @@ var targetUsername = process.argv[2];
 */
 var lineReader = require('readline').createInterface({
 	//change this line if using other passwords list
-    input: fs.createReadStream('./passwords_jhon.txt')
+    input: fs.createReadStream(wordlistPath)
 });
 
 lineReader.on('line', function(line) {
