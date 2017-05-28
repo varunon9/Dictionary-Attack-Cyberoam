@@ -23,7 +23,7 @@ Also cyberoam does not block multiple login requests from same ip-address within
 3. Open terminal/cmd
 4. Move to script directory (where you extracted zip file) using `cd /path/to/repository`
 5. Run `npm install` to install all nodejs dependencies
-6. Once all the dependencies has been installed type `node main.js 1130328`
+6. Once all the dependencies has been installed type `node main.js 1130328 passwords_jhon.txt`
 7. Replace 1130328 with any valid Roll no on which you want to perform attack (see screenshots)
 8. Sit back and enjoy coffee. If victim's password is weak, it will be cracked and saved to cracked.txt file. 
 9. You can see progress on your screen (see screenshots- it will take some minutes).
